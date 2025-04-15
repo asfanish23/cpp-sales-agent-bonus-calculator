@@ -1,0 +1,45 @@
+#include <iostream>
+#include <iomanip>
+using namespace std;
+
+int main() {
+    char choice = 'y';
+    int agentNum = 1;
+    double bonusRate;
+
+    cout << "Youth Living Agents Calculation System" << endl;
+
+    // User set bonus percentage
+    cout << "Enter cash bonus percentage (e.g. 10 for 10%): ";
+    cin >> bonusRate;
+    bonusRate /= 100.0; // Convert to decimal for calculation
+
+    while (choice == 'y' || choice == 'Y') {
+        int agentID, sales;
+		
+		
+		// Agent input
+        cout << "\nAgent " << agentNum << ":" << endl;
+        cout << "ID: ";
+        cin >> agentID;
+        cout << "Sales: ";
+        cin >> sales;
+		
+		// Calculate bonus
+        double cashBonus = bonusRate * sales;
+
+        cout << "--------------------" << endl;
+        cout << "ID: " << agentID << endl;
+        cout << "Cash bonus: RM " << fixed << setprecision(2) << cashBonus << endl;
+
+		// Ask if the user wants to continue
+        cout << "Continue? (y/n): ";
+        cin >> choice;
+
+        agentNum++;
+    }
+
+    return 0;
+}
+
+//made_by_asfadanish
